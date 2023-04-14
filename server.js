@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import cors from 'cors'
 import bodyParser from "body-parser";
 import authRoutes from './routes/authRoutes.js'
+import todoRoutes from './routes/todoRoutes.js'
 
 const app = express();
 dotenv.config();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes)
+app.use('/api/todo', todoRoutes)
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
