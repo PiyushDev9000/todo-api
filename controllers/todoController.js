@@ -59,4 +59,15 @@ export const todoDeleteController = async (req, res) => {
   }
 });*/}
 
+export const allTodoTasks = async (req, res) => {
+  try {
+    const todos = await TodoModel.find();
+      res.status(200).json({ todos });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+}
+
+
+
 export default router
